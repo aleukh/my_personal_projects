@@ -5,20 +5,15 @@ filename = sys.argv[1]
 
 with open(filename, "r+") as file:
 	data = file.readlines()
-	
-
 
 dir_path = os.path.realpath(filename)
 split_dir_path = dir_path.split("\\")
-print(split_dir_path)
 fullpath = ""
 
 for i in range(3, len(split_dir_path) - 1, 1):
 	fullpath = "/".join([fullpath, split_dir_path[i]])
 
 fullpath = "".join([fullpath, "/images/"])
-print(fullpath)	
-
 
 for i in range(0, len(data), 1):
 	if data[i].startswith("![[") == True:
@@ -33,12 +28,9 @@ for i in range(0, len(data), 1):
 with open(filename, "w") as fileOpen:
 	fileOpen.writelines(data)
 
-
-
-
-
 file.close()
 
 
+#this is for reference
 #![[Pasted image 20221022230502.png]]
 #![Image](/HTB/2023/Stocker/images/Pasted%20image%2020230224010811.png)
